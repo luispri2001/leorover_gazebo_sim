@@ -426,6 +426,59 @@
       </sensor>
     </link>
 
+
+    <!-- Unión fija del GPS con la base -->
+    <joint name="gps_joint" type="fixed">
+      <pose relative_to="base_footprint">0 0 0 0 0 0</pose>
+      <parent>base_footprint</parent>
+      <child>gps_link</child>
+    </joint>
+
+    <!-- Sensor GPS -->
+    <link name="gps_link">
+      <pose relative_to="gps_joint">0 0 0 0 0 0</pose>
+      
+      <inertial>
+        <mass>0.125</mass>
+        <inertia>
+          <ixx>0.001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.001</iyy>
+          <iyz>0</iyz>
+          <izz>0.001</izz>
+        </inertia>
+      </inertial>
+
+      <sensor name="gps" type="gps">
+        <pose relative_to="gps_link">0 0 0 0 0 0</pose>
+        <always_on>true</always_on>
+        <update_rate>5</update_rate>
+        <topic>/gps/fix</topic>
+        <ignition_frame_id>gps_link</ignition_frame_id>
+
+        <gps>
+          <position_sensing>
+            <horizontal>
+              <noise type="gaussian">
+                <mean>0.0</mean>
+                <stddev>0.00000001</stddev>
+              </noise>
+            </horizontal>
+            <vertical>
+              <noise type="gaussian">
+                <mean>0.0</mean>
+                <stddev>0.00000001</stddev>
+              </noise>
+            </vertical>
+          </position_sensing>
+        </gps>
+
+        <!-- Plugin opcional para Ignition Gazebo -->
+        <plugin filename="ignition-gazebo-navsat-system" name="ignition::gazebo::systems::NavSat"/>
+      </sensor>
+    </link>
+
     <joint name='internal_camera_optical_joint' type='fixed'>
       <pose relative_to='base_footprint'>0.107 0 0.155 1.5707963 1.3605192 -3.1415927</pose>
       <parent>base_footprint</parent>
@@ -896,7 +949,7 @@
         <right_joint>wheel_RR_joint</right_joint>
         <wheel_separation>0.4</wheel_separation>
         <wheel_radius>0.075</wheel_radius>
-        <odom_publish_frequency>1</odom_publish_frequency>
+        <odom_publish_frequency>10</odom_publish_frequency>
         <topic>cmd_vel</topic>
     </plugin>
 
@@ -907,6 +960,14 @@
         <joint_name>wheel_RL_joint</joint_name>
         <joint_name>wheel_FR_joint</joint_name>
         <joint_name>wheel_RR_joint</joint_name>
+    </plugin>
+
+    <plugin filename="ignition-gazebo-odometry-publisher-system" name="ignition::gazebo::systems::OdometryPublisher">
+      <odom_publish_frequency>50</odom_publish_frequency>
+      <odom_topic>/odom</odom_topic>
+      <odom_frame>odom</odom_frame>
+      <robot_base_frame>base_footprint</robot_base_frame>
+      <tf_topic>/odom/tf</tf_topic>
     </plugin>
 
   </model>
