@@ -1,12 +1,18 @@
 # Leo Sim Gazebo
 
-Leo Rover simulation using Gazebo Garden with ROS 2 Humble, adapted for integration with [gps_ignition_simulation](https://github.com/luispri2001/gps_ignition_simulation.git).
+Leo Rover simulation using Gazebo Ignition Fortress with ROS 2 Humble, adapted for integration with [gps_ignition_simulation](https://github.com/luispri2001/gps_ignition_simulation.git).
+
+
+## Tested Systems and ROS 2 Distro
+| System        | ROS 2 Distro | Ignition Fortress | Build Status |
+|---------------|--------------|-------------------|--------------|
+| Ubuntu 22.04  | Humble       | ✅                | ![Build Status](https://github.com/luispri2001/leorover_gazebo_sim/actions/workflows/main.yml/badge.svg?branch=main) |
 
 ![Screenshot of the simulation](screenshots/thumbnail.png)
 
 ## Description
 
-This repository is a fork of the original project by [Dave-van-der-Meer](https://github.com/Dave-van-der-Meer/leorover_gazebo_sim_docker), which provides a simulation of the Leo Rover in Gazebo Garden with ROS 2 Humble. It has been refactored to better fit the needs of the [gps_ignition_simulation](https://github.com/luispri2001/gps_ignition_simulation.git) package, removing Docker dependency and improving compatibility.
+This repository is a fork of the original project by [Dave-van-der-Meer](https://github.com/Dave-van-der-Meer/leorover_gazebo_sim_docker), which provides a simulation of the Leo Rover in Gazebo Ignition Fortress with ROS 2 Humble. It has been refactored to better fit the needs of the [gps_ignition_simulation](https://github.com/luispri2001/gps_ignition_simulation.git) package, removing Docker dependency and improving compatibility.
 
 ## Installation
 
