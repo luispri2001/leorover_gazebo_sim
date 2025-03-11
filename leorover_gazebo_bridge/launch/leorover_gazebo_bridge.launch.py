@@ -10,13 +10,14 @@ def generate_launch_description():
         '/odom@nav_msgs/msg/Odometry[gz.msgs.Odometry',
         '/cmd_vel@geometry_msgs/msg/Twist]gz.msgs.Twist',
         '/scan@sensor_msgs/msg/LaserScan[gz.msgs.LaserScan',
+        '/scan/points@sensor_msgs/msg/PointCloud2@gz.msgs.PointCloudPacked',
         '/imu@sensor_msgs/msg/Imu[gz.msgs.IMU',
+        '/scan/points@gz.msgs.PointCloud[sensor_msgs/msg/PointCloud2]',
         '/body_camera/camera_info@sensor_msgs/msg/CameraInfo[gz.msgs.CameraInfo',
         '/body_camera/image@sensor_msgs/msg/Image[gz.msgs.Image',
         '/leo/realsense_d455/camera_info@sensor_msgs/msg/CameraInfo[gz.msgs.CameraInfo',
         '/leo/realsense_d455/image@sensor_msgs/msg/Image[gz.msgs.Image',
         '/leo/realsense_d455/depth_image@sensor_msgs/msg/Image[gz.msgs.Image',
-    #    '/model/leorover/tf@tf2_msgs/msg/TFMessage[gz.msgs.Pose_V',
         '/gps/fix@sensor_msgs/msg/NavSatFix[ignition.msgs.NavSat',
         '/world/default/model/leorover/joint_state@sensor_msgs/msg/JointState[gz.msgs.Model',
         '/odom/tf@tf2_msgs/msg/TFMessage[ignition.msgs.Pose_V',
@@ -25,17 +26,13 @@ def generate_launch_description():
 
     remappings=[
         ("/odom/tf", "tf"),
-        # ('/clock', '/leo/clock'),
-        # ('/model/leorover/odometry', '/odom'),
         ('/cmd_vel', '/cmd_vel'),
-        #('/scan', '/leo/scan'),
         ('/imu', '/imu'),
         ('/body_camera/camera_info', '/leo/body_camera/camera_info'),
         ('/body_camera/image', '/leo/body_camera/image'),
         ('/leo/realsense_d455/camera_info', '/leo/realsense_d455/camera_info'),
         ('/leo/realsense_d455/image', '/leo/realsense_d455/image'),
         ('/leo/realsense_d455/depth_image', '/leo/realsense_d455/depth_image'),
-    #    ('/model/leorover/tf','/leo/tf'), # Renamed as otherwise, the leorover/odom frame will interfere with SLAM
         ('/world/default/model/leorover/joint_state','/joint_states')
     ]
 
