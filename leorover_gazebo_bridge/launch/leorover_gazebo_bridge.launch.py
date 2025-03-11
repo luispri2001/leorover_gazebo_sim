@@ -28,7 +28,7 @@ def generate_launch_description():
         # ('/clock', '/leo/clock'),
         # ('/model/leorover/odometry', '/odom'),
         ('/cmd_vel', '/cmd_vel'),
-        ('/scan', '/leo/scan'),
+        #('/scan', '/leo/scan'),
         ('/imu', '/imu'),
         ('/body_camera/camera_info', '/leo/body_camera/camera_info'),
         ('/body_camera/image', '/leo/body_camera/image'),
