@@ -6,7 +6,7 @@ Leo Rover simulation using Gazebo Ignition Fortress with ROS 2 Humble, adapted f
 ## Tested Systems and ROS 2 Distro
 | System        | ROS 2 Distro | Ignition Fortress | Build Status |
 |---------------|--------------|-------------------|--------------|
-| Ubuntu 22.04  | Humble       | ✅                | ![Build Status](https://github.com/luispri2001/leorover_gazebo_sim/actions/workflows/main.yml/badge.svg?branch=main) |
+| Ubuntu 22.04  | Humble       | ✅                | ![Build Status](https://github.com/luispri2001/leorover_gazebo_sim/actions/workflows/main.yml/badge.svg?branch=master) |
 
 ![Screenshot of the simulation](screenshots/thumbnail.png)
 
