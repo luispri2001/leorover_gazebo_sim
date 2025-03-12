@@ -404,10 +404,10 @@
                     <max_angle>1.396263</max_angle>
                 </horizontal>
                 <vertical>
-                    <samples>1</samples>
-                    <resolution>0.01</resolution>
-                    <min_angle>0</min_angle>
-                    <max_angle>0</max_angle>
+                  <samples>32</samples>  <!-- Capas del LiDAR (Ej: Velodyne VLP-32) -->
+                  <resolution>1.0</resolution>
+                  <min_angle>-0.26</min_angle>  <!-- -15° hacia abajo -->
+                  <max_angle>0.26</max_angle>   <!-- 15° hacia arriba -->
                 </vertical>
             </scan>
             <range>
