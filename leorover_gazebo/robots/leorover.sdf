@@ -462,13 +462,13 @@
             <horizontal>
               <noise type="gaussian">
                 <mean>0.0</mean>
-                <stddev>0.0000001</stddev>
+                <stddev>0.00000001</stddev>
               </noise>
             </horizontal>
             <vertical>
               <noise type="gaussian">
                 <mean>0.0</mean>
-                <stddev>0.0000001</stddev>
+                <stddev>0.00000001</stddev>
               </noise>
             </vertical>
           </position_sensing>
@@ -951,7 +951,6 @@
         <wheel_radius>0.075</wheel_radius>
         <odom_publish_frequency>10</odom_publish_frequency>
         <topic>cmd_vel</topic>
-        <min_velocity>0.0002</min_velocity>  <!-- Tolerancia mínima -->
     </plugin>
 
     <plugin
