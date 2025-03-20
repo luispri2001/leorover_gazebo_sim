@@ -462,13 +462,13 @@
             <horizontal>
               <noise type="gaussian">
                 <mean>0.0</mean>
-                <stddev>0.00000001</stddev>
+                <stddev>0.000001</stddev>
               </noise>
             </horizontal>
             <vertical>
               <noise type="gaussian">
                 <mean>0.0</mean>
-                <stddev>0.00000001</stddev>
+                <stddev>0.000001</stddev>
               </noise>
             </vertical>
           </position_sensing>
@@ -939,36 +939,40 @@
       </visual>
     </link>
 
-        <!-- Source: https://gazebosim.org/docs/garden/moving_robot -->
+
     <plugin
-        filename="gz-sim-diff-drive-system"
-        name="gz::sim::systems::DiffDrive">
+        filename="ignition-gazebo-diff-drive-system"
+        name="ignition::gazebo::systems::DiffDrive">
         <left_joint>wheel_FL_joint</left_joint>
         <left_joint>wheel_RL_joint</left_joint>
         <right_joint>wheel_FR_joint</right_joint>
         <right_joint>wheel_RR_joint</right_joint>
         <wheel_separation>0.4</wheel_separation>
         <wheel_radius>0.075</wheel_radius>
-        <odom_publish_frequency>0</odom_publish_frequency>
+        <odom_publish_frequency>10</odom_publish_frequency>
         <topic>cmd_vel</topic>
+        <min_velocity>0.0002</min_velocity>  <!-- Tolerancia mínima -->
     </plugin>
 
     <plugin
-      filename="gz-sim-joint-state-publisher-system"
-      name="gz::sim::systems::JointStatePublisher">
+        filename="ignition-gazebo-joint-state-publisher-system"
+        name="ignition::gazebo::systems::JointStatePublisher">
         <joint_name>wheel_FL_joint</joint_name>
         <joint_name>wheel_RL_joint</joint_name>
         <joint_name>wheel_FR_joint</joint_name>
         <joint_name>wheel_RR_joint</joint_name>
     </plugin>
 
-    <plugin filename="ignition-gazebo-odometry-publisher-system" name="ignition::gazebo::systems::OdometryPublisher">
-      <odom_publish_frequency>50</odom_publish_frequency>
-      <odom_topic>/odom</odom_topic>
-      <odom_frame>odom</odom_frame>
-      <robot_base_frame>base_footprint</robot_base_frame>
-      <tf_topic>/odom/tf</tf_topic>
+    <plugin 
+        filename="ignition-gazebo-odometry-publisher-system" 
+        name="ignition::gazebo::systems::OdometryPublisher">
+        <odom_publish_frequency>50</odom_publish_frequency>
+        <odom_topic>/odom</odom_topic>
+        <odom_frame>odom</odom_frame>
+        <robot_base_frame>base_footprint</robot_base_frame>
+        <tf_topic>/odom/tf</tf_topic>
     </plugin>
+
 
   </model>
 </sdf>
